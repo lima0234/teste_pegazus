@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Pegazus</title>
+    
+    <!-- Estilos incluídos diretamente no cabeçalho para facilitar a integração sem depender de arquivos externos -->
+    <style>
+        /* Definindo a paleta de cores para facilitar o uso consistente das mesmas cores no design */
+        :root {
+            --green-primary: #1A9047; /* Usei essa cor para ser o principal tom verde da página */
+            --green-secondary: #2BC866; /* Cor secundária verde, usada para efeitos de hover */
+            --blue-primary: #004AAD; /* Escolhi esse azul para criar contraste com os tons verdes */
+        }
+
+        /* Reinício básico para garantir que os elementos tenham padding e margin resetados */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Usei isso para garantir que o padding e as bordas não afetem as dimensões dos elementos */
+        }
+
+        /* Estilizando o corpo da página para garantir uma boa legibilidade e um design clean */
+        body {
+            font-family: 'Helvetica', sans-serif; /* A fonte Helvetica foi escolhida por ser simples e legível */
+            line-height: 1.6; /* O espaçamento entre as linhas foi aumentado para melhorar a leitura do texto */
+        }
+
+        /* O cabeçalho foi feito fixo para que a barra de navegação sempre fique visível, mesmo ao rolar a página */
+        header {
+            background-color: var(--green-primary); /* A cor verde principal foi usada para dar destaque ao cabeçalho */
+            color: white; /* Escolhi branco para o texto, pois cria um bom contraste com o fundo verde */
+            padding: 1rem; /* O padding foi adicionado para dar um espaçamento agradável entre o conteúdo */
+            position: fixed; /* Tornei a barra fixa no topo para melhorar a navegação do usuário */
+            top: 0;
+            width: 100%; /* A barra de navegação se estende por toda a largura da página */
+            z-index: 100; /* Usei um valor alto de z-index para garantir que o cabeçalho esteja sempre à frente do conteúdo */
+        }
+
+        /* A barra de navegação foi feita com flexbox para facilitar o alinhamento dos itens */
+        .navbar {
+            display: flex; /* Flexbox permite distribuir os elementos horizontalmente com facilidade */
+            justify-content: space-between; /* Usei space-between para que os itens ocupem os extremos da barra */
+            align-items: center; /* Centralizei os itens verticalmente para garantir um alinhamento consistente */
+        }
+
+        /* Estilização dos links de navegação para que fiquem alinhados horizontalmente e tenham bom espaçamento */
+        .nav-links {
+            list-style: none; /* Removi os pontos de lista padrão para manter o design limpo */
+            display: flex; /* Flexbox foi usado novamente para manter os links alinhados em linha */
+            gap: 20px; /* Adicionei espaço entre os links para melhorar a usabilidade e a estética */
+        }
+
+        /* Definindo o estilo dos links de navegação */
+        .nav-links a {
+            color: white; /* O branco contrasta bem com o fundo verde do cabeçalho */
+            text-decoration: none; /* Removi o sublinhado dos links para um visual mais limpo */
+            font-weight: bold; /* Negritei os links para destacá-los e tornar mais visível o menu de navegação */
+        }
+
+        /* Estilizando os botões de ação no cabeçalho (Entrar e Cadastrar) */
+        .nav-buttons .btn {
+            background-color: var(--blue-primary); /* Usei azul para contrastar com o verde e destacar os botões */
+            color: white; /* Mantive o texto branco para garantir legibilidade em cima do fundo azul */
+            border: none; /* Removi a borda padrão para deixar o design mais clean */
+            padding: 10px 15px; /* Adicionei padding para tornar os botões maiores e mais fáceis de clicar */
+            cursor: pointer; /* O cursor foi alterado para pointer para indicar que o elemento é clicável */
+            transition: background-color 0.3s ease; /* Adicionei uma transição suave ao passar o mouse sobre os botões */
+        }
+
+        /* Animação ao passar o mouse nos botões */
+        .nav-buttons .btn:hover {
+            background-color: var(--green-secondary); /* Mudei a cor do fundo no hover para verde claro, criando um efeito interativo */
+        }
+
+        /* Repeti essa configuração para garantir que todos os botões tenham um efeito de hover */
+        button:hover {
+            background-color: var(--green-secondary); /* A cor de hover garante que o botão mude de forma visualmente agradável */
+            transition: background-color 0.3s ease; /* A transição foi suavizada para melhorar a experiência do usuário */
+        }
+
+        /* Definindo as seções principais da página com padding adequado para espaçamento */
+        .section {
+            padding: 100px 20px; /* Usei esse padding para garantir que o conteúdo não fique sobreposto pela barra de navegação */
+            text-align: center; /* Centralizei o conteúdo para dar um layout mais simétrico e esteticamente agradável */
+        }
+
+        /* Estilização simples do rodapé */
+        footer {
+            background-color: var(--green-primary); /* Usei a mesma cor verde para manter a identidade visual do rodapé */
+            color: white; /* O texto branco mantém a legibilidade contra o fundo verde */
+            text-align: center; /* Centralizei o texto para deixar o rodapé simples e elegante */
+            padding: 10px 0; /* Adicionei padding para dar um pouco de espaço ao texto */
+        }
+    </style>
+</head>
+<body>
+    <!-- O cabeçalho contém a barra de navegação e está fixo no topo -->
+    <header>
+        <nav class="navbar">
+            <!-- Logotipo do site -->
+            <div class="logo">
+                <img src="Images/notification_bell.svg" alt="Logo Pegazus"> <!-- Substitua o logo pelo arquivo SVG que desejar -->
+            </div>
+
+            <!-- Links de navegação para diferentes seções da página -->
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li> <!-- Esse link leva o usuário para a seção Home -->
+                <li><a href="#sobre">Sobre nós</a></li> <!-- Esse link leva o usuário para a seção Sobre -->
+                <li><a href="#parceiros">Parceiros</a></li> <!-- Esse link leva o usuário para a seção Parceiros -->
+                <li><a href="#ajuda">Ajuda</a></li> <!-- Esse link leva o usuário para a seção Ajuda -->
+            </ul>
+
+            <!-- Botões de ação no cabeçalho, feitos para chamar a atenção -->
+            <div class="nav-buttons">
+                <button class="btn">Entrar</button> <!-- Botão de entrar -->
+                <button class="btn">Cadastrar</button> <!-- Botão de cadastro -->
+            </div>
+        </nav>
+    </header>
+
+    <!-- Seção Home -->
+    <section id="home" class="section">
+        <h1>Bem-vindo ao Desafio Pegazus!</h1> <!-- Título principal da seção -->
+        <p>Este é um exemplo de uma página HTML criada como parte de um desafio.</p>
+    </section>
+
+    <!-- Seção Sobre Nós -->
+    <section id="sobre" class="section">
+        <h2>Sobre Nós</h2> <!-- Título da seção Sobre Nós -->
+        <p>Somos uma empresa que adora desafios e valoriza desenvolvedores.</p>
+        <img src="Images/need_help.svg" alt="Ícone de Ajuda"> <!-- Ícone SVG incluído -->
+    </section>
+
+    <!-- Seção Parceiros -->
+    <section id="parceiros" class="section">
+        <h2>Parceiros</h2> <!-- Título da seção Parceiros -->
+        <p>Conheça nossos parceiros e suas histórias de sucesso.</p>
+        <img src="Images/boxes.svg" alt="Ícone de Parceiros"> <!-- Ícone SVG incluído -->
+    </section>
+
+    <!-- Seção Ajuda -->
+    <section id="ajuda" class="section">
+        <h2>Ajuda</h2> <!-- Título da seção Ajuda -->
+        <p>Precisa de ajuda? Entre em contato conosco através de nossas redes sociais.</p>
+        <img src="Images/search.svg" alt="Ícone de Pesquisa"> <!-- Ícone SVG incluído -->
+    </section>
+
+    <!-- Rodapé da página -->
+    <footer>
+        <p>Desafio Pegazus - Todos os direitos reservados.</p> <!-- Texto simples no rodapé -->
+    </footer>
+</body>
+</html>
+
